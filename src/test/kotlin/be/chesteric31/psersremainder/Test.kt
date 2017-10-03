@@ -3,18 +3,12 @@ package be.chesteric31.psersremainder
 import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 import com.fasterxml.jackson.module.kotlin.readValue
 import org.springframework.boot.web.client.RestTemplateBuilder
-import org.springframework.core.ParameterizedTypeReference
-import org.springframework.web.client.getForObject
 import org.springframework.http.HttpHeaders
 import org.springframework.web.client.HttpStatusCodeException
-import kotlin.reflect.jvm.internal.impl.load.kotlin.JvmType
 import org.springframework.util.MultiValueMap
 import org.springframework.http.HttpEntity
 import org.springframework.http.MediaType
 import org.springframework.util.LinkedMultiValueMap
-import org.springframework.http.MediaType.APPLICATION_FORM_URLENCODED
-
-
 
 
 fun main(args: Array<String>) {
@@ -29,7 +23,7 @@ fun main(args: Array<String>) {
     val restTemplate = RestTemplateBuilder().build();
     val wrapper = restTemplate.getForObject("https://psers-api.herokuapp.com/api/users", UserWrapper::class.java)
     //println(wrapper)
-    val showsMap = LinkedHashMap<Integer, MutableList<String>>()
+    val showsMap = LinkedHashMap<Int, MutableList<String>>()
     for (user in wrapper.users) {
         //println("${user.id}: ${user.shows}")
         for (show in user.shows) {
@@ -37,7 +31,7 @@ fun main(args: Array<String>) {
             if (listOfUsers == null) {
                 listOfUsers = mutableListOf()
             }
-            listOfUsers?.add(user.id)
+            listOfUsers.add(user.id)
             showsMap.put(show, listOfUsers)
         }
     }
