@@ -17,7 +17,8 @@ import java.time.LocalDateTime
 class ScheduledTasks {
 
     //Fire at 12:00 PM (noon) every day
-    @Scheduled(cron = "0 0 12 * * ?")
+    //@Scheduled(cron = "0 0 12 * * ?")
+    @Scheduled(fixedRate = 60000)
     fun checkEpisodes() {
         val log = LoggerFactory.getLogger(ScheduledTasks::class.java)
         val now = LocalDateTime.now()
