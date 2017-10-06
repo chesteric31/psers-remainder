@@ -41,6 +41,7 @@ repositories {
 dependencies {
 	compile('org.springframework.boot:spring-boot-starter')
 	compile('org.springframework.boot:spring-boot-starter-web:2.0.0.M4')
+	compile("org.springframework.boot:spring-boot-starter-actuator")
 	compile("org.jetbrains.kotlin:kotlin-stdlib-jre8:${kotlinVersion}")
 	compile("org.jetbrains.kotlin:kotlin-reflect:${kotlinVersion}")
 	compile("com.fasterxml.jackson.module:jackson-module-kotlin:2.9.0")
